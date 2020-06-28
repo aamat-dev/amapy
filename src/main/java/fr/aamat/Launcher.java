@@ -1,8 +1,14 @@
 package fr.aamat;
 
+import java.time.Instant;
+import java.util.Date;
+
 public class Launcher {
+
     public static void main(String[] args) {
-        System.out.println("LANCEMENT DE L'APPLICATION");
+
         App.main(args);
+
+
     }
 }

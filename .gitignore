@@ -35,3 +35,6 @@ Supprimerait target/maven-status/
 # dossier ignoré
 .idea/
 target/
+
+# ignorer bdd sql
+*.db
