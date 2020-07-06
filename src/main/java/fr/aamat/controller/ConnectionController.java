@@ -1,26 +1,24 @@
 package fr.aamat.controller;
 
-import fr.aamat.App;
-import fr.aamat.Launcher;
+import fr.aamat.view.Vues;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ConnectionController implements Initializable {
+import static fr.aamat.view.StageManager.closeStage;
+import static fr.aamat.view.StageManager.showStage;
+
+public class ConnectionController extends AbstractController {
 
     @FXML private TextField apiculteur;
     @FXML private PasswordField password;
 
-    @FXML private void handleConnexion() throws IOException {
-        App.showStage("DashBoard");
-        App.closeStage("Connection");
-
+    @FXML private void handleConnexion() {
+        showStage(Vues.MenuPrincipal);
+        closeStage(Vues.Connection);
     }
 
     @Override

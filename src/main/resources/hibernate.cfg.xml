@@ -9,7 +9,7 @@
         <property name="connection.url">jdbc:sqlite:amapy.db</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <mapping class="/fr.aamat/persistance/mapping/Personnes.hbm.xml"/>
-        <mapping class="/fr.aamat/persistance/mapping/Maison.hbm.xml"/>
+        <mapping resource="mapping/Ruche.hbm.xml"/>
+
     </session-factory>
 </hibernate-configuration>

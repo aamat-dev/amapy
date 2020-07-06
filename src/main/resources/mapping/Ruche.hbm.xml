@@ -3,11 +3,11 @@
         "http://hibernate.org/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="fr.aamat.model.Maison" table="maison">
-        <id name="id" type="int" column="id">
+    <class name="fr.aamat.model.Ruche">
+        <id name="id" type="int">
             <generator class="increment"/>
         </id>
-        <property name="adresse"/>
-        <property name="etage"/>
+        <property name="nom"/>
+        <property name="description"/>
     </class>
 </hibernate-mapping>

@@ -1,19 +1,15 @@
 package fr.aamat.persistance;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+import fr.aamat.model.Ruche;
+
+import java.util.List;
 
 public abstract class AbstractDAO<T> {
-
-    protected SessionFactory sessionFactory;
 
     /**
      * ressource de connexion
      */
-    public AbstractDAO(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    public AbstractDAO() {
     }
 
 
@@ -21,9 +17,8 @@ public abstract class AbstractDAO<T> {
      * Méthode de création en BDD
      *
      * @param obj objet de type entité paramétrable
-     * @return boolean
      */
-    public abstract boolean create(T obj);
+    public abstract void create(T obj);
 
     /**
      * Méthode pour effacer en BDD
@@ -50,4 +45,12 @@ public abstract class AbstractDAO<T> {
      */
     public abstract T findById(int id);
 
+
+    /**
+     * Méthode de recherche de tous les obj
+     * lance un exception à destination de l'interface lorsqu'aucun résultat n'est trouvé
+     *
+     * @return T objet de type entité paramétrable
+     */
+    public abstract List<T> findAll();
 }
