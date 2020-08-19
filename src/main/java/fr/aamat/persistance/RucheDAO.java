@@ -4,45 +4,47 @@ import fr.aamat.model.Ruche;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.hibernate.Session;
-
-import java.util.List;
+import org.hibernate.Transaction;
 
 public class RucheDAO extends AbstractDAO<Ruche> {
-
-    private Session session;
+    private Session session = ManageDAO.getSessionFactory().openSession();
+    private Transaction tx;
 
     public RucheDAO() {
-        session = ManageDAO.getSessionFactory().openSession();
-        session.beginTransaction();
     }
 
-    @Override
     public void create(Ruche obj) {
-        session.save(obj);
-        session.getTransaction().commit();
+        this.tx = this.session.beginTransaction();
+        this.session.save(obj);
+        this.tx.commit();
     }
 
-    @Override
     public boolean delete(Ruche obj) {
-        return false;
+        this.tx = this.session.beginTransaction();
+        this.session.remove(obj);
+        this.tx.commit();
+        return true;
     }
 
-    @Override
     public boolean update(Ruche obj) {
-        return false;
+        this.tx = this.session.beginTransaction();
+        this.session.update(obj);
+        this.tx.commit();
+        return true;
     }
 
-
-    @Override
     public Ruche findById(int id) {
         return null;
     }
 
-    @Override
     public ObservableList<Ruche> findAll() {
-        ObservableList<Ruche> ruches = FXCollections.observableArrayList(session.createCriteria(Ruche.class).list());
-        session.close();
+        ObservableList<Ruche> ruches = FXCollections.observableArrayList(this.session.createCriteria(Ruche.class).list());
         return ruches;
     }
 
+    public int nextID() {
+        ObservableList<Ruche> ruches = FXCollections.observableArrayList(this.session.createCriteria(Ruche.class).list());
+        Ruche ruche = (Ruche)ruches.get(ruches.size() - 1);
+        return ruche.getId() + 1;
+    }
 }

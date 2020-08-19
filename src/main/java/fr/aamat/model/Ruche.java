@@ -1,24 +1,27 @@
 package fr.aamat.model;
 
 public class Ruche {
-
     private Integer id;
     private String nom;
     private String description;
+    private String emplacement;
     private Colonie colonie;
+    private String urlImage;
 
     public Ruche() {
     }
 
-    public Ruche(Integer id, String nom, String description, Colonie colonie) {
+    public Ruche(Integer id, String nom, String description, String emplacement, Colonie colonie, String urlImage) {
         this.id = id;
         this.nom = nom;
         this.description = description;
+        this.emplacement = emplacement;
         this.colonie = colonie;
+        this.urlImage = urlImage;
     }
 
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -26,7 +29,7 @@ public class Ruche {
     }
 
     public String getNom() {
-        return nom;
+        return this.nom;
     }
 
     public void setNom(String nom) {
@@ -34,7 +37,7 @@ public class Ruche {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -42,15 +45,30 @@ public class Ruche {
     }
 
     public Colonie getColonie() {
-        return colonie;
+        return this.colonie;
     }
 
     public void setColonie(Colonie colonie) {
         this.colonie = colonie;
     }
 
-    @Override
+    public String getEmplacement() {
+        return this.emplacement;
+    }
+
+    public void setEmplacement(String emplacement) {
+        this.emplacement = emplacement;
+    }
+
+    public String getUrlImage() {
+        return this.urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
+
     public String toString() {
-        return nom;
+        return this.nom;
     }
 }

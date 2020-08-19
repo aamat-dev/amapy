@@ -9,5 +9,7 @@
         </id>
         <property name="nom"/>
         <property name="description"/>
+        <property name="emplacement"/>
+        <property name="urlImage"/>
     </class>
 </hibernate-mapping>
